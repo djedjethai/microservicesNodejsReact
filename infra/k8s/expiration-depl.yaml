@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expiration-depl 
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expiration
+  template:
+    metadata:
+      labels:
+        app: expiration
+    spec:
+      containers:
+        - name: expiration 
+          image: djedjethai/expiration
+          env:
+          - name: NATS_CLIENT_ID 
+            valueFrom: # get the name of the pod
+              fieldRef:
+                fieldPath: metadata.name
+          - name: NATS_URL
+            value: 'http://nats-srv:4222'
+          - name: NATS_CLUSTER_ID
+            value: ticketing # quotes ??
+          - name: REDIS_HOST
+            value: expiration-redis-srv
+
+# NO ClusterIp as the expiration pod will communicate asynchronously using node-nats-stream
