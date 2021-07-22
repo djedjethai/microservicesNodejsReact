@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import { Order } from '../../models/order'
 import { OrderStatus } from '@microticketing/common'
 import { stripe } from '../../stripe'
+import { Payment } from '../../models/payment'
 
 // tell jest to use our stripe's mock function instead of the real one
 jest.mock('../../stripe')
@@ -97,4 +98,14 @@ it('return 204 with valide imput', async() => {
 	expect(chargeOptions.source).toEqual('tok_visa')
 	expect(chargeOptions.amount).toEqual(20*100)
 	expect(chargeOptions.currency).toEqual('usd')
+
+	// test the save of the payment to the payment in db
+	// but i can not do it as i simply mocked the function....
+	const payment = await Payment.findOne({
+		orderId: order.id
+		// striprId: stripeCharge.id // better with that but i don't have it
+	})
+	expect(payment).not.toBeNull()
 })
+
+
