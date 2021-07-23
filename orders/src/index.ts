@@ -5,6 +5,7 @@ import { natsWrapper } from './nats-wrapper'
 import { TicketCreatedListener } from './events/ticket-created-listener'
 import { TicketUpdatedListener } from './events/ticket-updated-listener'
 import { ExpirationCompleteListener } from './events/expiration-complete-listener'
+import { PaymentCreatedListener } from './events/payment-created-listener'
 
 const start = async() => {
 	
@@ -52,6 +53,7 @@ const start = async() => {
 		new TicketCreatedListener(stanClient).listen()
 		new TicketUpdatedListener(stanClient).listen()
 		new ExpirationCompleteListener(stanClient).listen()
+		new PaymentCreatedListener(stanClient).listen()
 
 		// /auth cree the database 
 		await mongoose.connect(process.env.MONGO_URI, {
