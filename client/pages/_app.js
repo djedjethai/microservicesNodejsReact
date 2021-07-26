@@ -5,8 +5,10 @@ import Header from '../components/header'
 // pageProps && currentUser come from the return
 const AppComponent = ({ Component, pageProps, currentUser }) => {
 	return (<div>
-		<Header currentUser={currentUser} />
-		<Component currentUser={currentUser} {...pageProps} />
+			<Header currentUser={currentUser} />
+			<div className="container">
+			<Component currentUser={currentUser} {...pageProps} />
+			</div>
 		</div>
 	)	
 } 
