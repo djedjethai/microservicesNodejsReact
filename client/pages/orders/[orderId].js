@@ -8,9 +8,10 @@ const OrderShow = ({ order, currentUser }) => {
 		url:'/api/payments',
 		method: 'post',
 		body: {
+			token: "tok_visa", // i add it myself
 			orderId: order.id
 		},
-		onSuccess: (payment) => console.log(payment)
+		onSuccess: (payment) => console.log('the payment: ', payment)
 	})
 
 	// to make sure the component render only one time
@@ -51,6 +52,8 @@ OrderShow.getInitialProps = async(context, client) => {
 	// 'orderId' bc we named the file like it
 	const { orderId } = context.query
 	const { data } = await client.get(`/api/orders/${orderId}`)
+
+console.log("dataaa: ", data)
 
 	return { order: data }
 }

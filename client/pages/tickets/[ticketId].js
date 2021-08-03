@@ -9,6 +9,7 @@ const TicketShow = ({ticket}) => {
 			ticketId: ticket.id
 		}, // this is a cb with the resp datas
 		onSuccess: (order) => Router.push('/orders/[orderId]', `/orders/${order.id}`)
+		// onSuccess: (order) => console.log(order)
 	})
 
 	return (

@@ -7,7 +7,8 @@ export default ({ url, method, body, onSuccess }) => {
 	const doRequest = async(props = {}) => {
 		try{
 			setErrors(null)
-			const response = await axios[method](url, {...body, ...props})
+			// fail const response = await axios[method](url, {...body, ...props})
+			const response = await axios[method](url, body)
 			
 			// if the axios req is successful, 
 			// the onSuccess destructured arg will be true, how...?? 
@@ -21,8 +22,9 @@ export default ({ url, method, body, onSuccess }) => {
 			setErrors(<div className="alert alert-danger">
 				<h4>Oooops ...</h4>
 				<ul className="my-0">
-					{console.log('yayayay: ',e.response.data)}
-					{e.response.data.errors.map(err => <li key={err.message}>{err.message}</li>)}
+					{e.response.data.errors.map(err => (
+						<li key={err.message}>{err.message}</li>
+					))}
 				</ul>
 			</div>)
 		}
@@ -30,3 +32,40 @@ export default ({ url, method, body, onSuccess }) => {
 
 	return { doRequest, errors }
 }
+
+
+// import axios from 'axios';
+// import { useState } from 'react';
+// 
+// export default ({ url, method, body, onSuccess }) => {
+//   const [errors, setErrors] = useState(null);
+// 
+//   const doRequest = async () => {
+//     try {
+//       setErrors(null);
+//       const response = await axios[method](url, body);
+// 
+//       if (onSuccess) {
+//         onSuccess(response.data);
+//       }
+// 
+//       return response.data;
+//     } catch (err) {
+//       setErrors(
+//         <div className="alert alert-danger">
+//           <h4>Ooops....</h4>
+//           <ul className="my-0">
+//             {err.response.data.errors.map(err => (
+//               <li key={err.message}>{err.message}</li>
+//             ))}
+//           </ul>
+//         </div>
+//       );
+//     }
+//   };
+// 
+//   return { doRequest, errors };
+// };
+
+
+

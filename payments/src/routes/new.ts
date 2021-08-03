@@ -29,6 +29,9 @@ router.post('/api/payments',
 	validateRequest,
 	async (req: Request, res: Response) => {
 		const { token, orderId } = req.body
+
+		console.log('the tokkk: ', token)
+		console.log('the orderId: ', orderId)
 		
 		const order = await Order.findById(orderId)
 		// check various conditions before allowing payment
