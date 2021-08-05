@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import useRequest from '../../hooks/use-request'
+import Router from 'next/router'
 
 const OrderShow = ({ order, currentUser }) => {
 	const [timeLeft, setTimeLeft] = useState(0)
@@ -11,7 +12,7 @@ const OrderShow = ({ order, currentUser }) => {
 			token: "tok_visa", // i add it myself
 			orderId: order.id
 		},
-		onSuccess: (payment) => console.log('the payment: ', payment)
+		onSuccess: (payment) => Router.push('/orders')
 	})
 
 	// to make sure the component render only one time

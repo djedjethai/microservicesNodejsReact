@@ -7,6 +7,8 @@ export default ({ currentUser }) => {
 		// if first condition is false return false
 		!currentUser && {labels:'Sign Up', href:'/auth/signup'},
 		!currentUser && {labels:'Sign In', href:'/auth/signin'},
+		currentUser && {labels:'Sell Tickets', href:'/tickets/new'},
+		currentUser && {labels:'My Orders', href:'/orders'},
 		currentUser && {labels:'Sign Out', href:'/auth/signout'}
 	]
 		.filter(linkConfig => linkConfig) // to return only true elemt
