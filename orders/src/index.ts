@@ -8,7 +8,7 @@ import { ExpirationCompleteListener } from './events/expiration-complete-listene
 import { PaymentCreatedListener } from './events/payment-created-listener'
 
 const start = async() => {
-	console.log('order svc started...')
+	console.log('order svc started....')
 
 	// verif secret's env in k8s
 	if(!process.env.JWT_KEY) {
