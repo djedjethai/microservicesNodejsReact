@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 import { app } from './app'
 
 const start = async() => {
-	
+	console.log('starting up.....')
+
 	// verif secret's env in k8s
 	if(!process.env.JWT_KEY) {
 		throw new Error('JWT_KEY must be define')
