@@ -7,7 +7,8 @@ import { OrderCancelledListener  } from './events/listeners/order-cancelled-list
 
 
 const start = async() => {
-	
+	console.log('payment svc started')
+
 	// verif secret's env in k8s
 	if(!process.env.JWT_KEY) {
 		throw new Error('JWT_KEY must be define')
