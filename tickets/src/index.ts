@@ -7,6 +7,7 @@ import { OrderCancelledListener } from './events/listeners/order-cancelled.liste
 
 
 const start = async() => {
+	console.log('tickets service started ...')
 	
 	// verif secret's env in k8s
 	if(!process.env.JWT_KEY) {
