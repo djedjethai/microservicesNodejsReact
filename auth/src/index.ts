@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import { app } from './app'
 
 const start = async() => {
-	console.log('auth svc stated')
+	console.log('auth svc stated...')
 
 	// verif secret's env in k8s
 	if(!process.env.JWT_KEY) {
