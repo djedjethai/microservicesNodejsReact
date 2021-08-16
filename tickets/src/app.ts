@@ -19,7 +19,8 @@ app.use(
 	cookieSession({
 		signed: false, // desable encryption
 		// secure:true // make sure is only use on https 
-		secure: process.env.NODE_ENV !== 'test' // for testing purpose as supertest
+		secure: false
+		// secure: process.env.NODE_ENV !== 'test' // for testing purpose as supertest
 		// can not set https. so if no env 'secure: true'
 	})
 )

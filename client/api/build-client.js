@@ -5,7 +5,8 @@ export default ({ req }) => {
 		
 		// that s how we create a prconfigured version of axios
 		return axios.create({
-			baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+			baseURL: 'http://www.tpr2u.com',
+			// baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
 			headers: req.headers
 		})
 	}
