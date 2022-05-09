@@ -15,8 +15,8 @@ Technologies:
 - Stripe
 
 ## Key issues
-Architect a multi-service application
-Solve concurrency issues in a distributed systems environment
-Deploying the application using Continuous Integration flow
-Share reusable code between multiple Express servers using custom NPM packages
-Deploy the application to a Google-Kubernetes-Engine cluster
+- Architect a multi-service application
+- Solve concurrency issues in a distributed systems environment
+- Deploying the application using Continuous Integration flow
+- Share reusable code between multiple Express servers using custom NPM packages
+- Deploy the application to a Google-Kubernetes-Engine cluster
